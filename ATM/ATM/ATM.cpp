@@ -3,9 +3,38 @@
 
 #include <iostream>
 
+using namespace std;
+
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    int n = 0;
+    cin >> n;
+    int *A= new int[n];
+
+    int i = 0;
+    int j = 0;
+    for (i = 0; i < n; i++) {
+        cin >> A[i];
+    }
+    for (i = 0; i < n; i++) {
+        for (j = i+1; j < n; j++) {
+            if (A[i] > A[j]) {
+                int t = A[i];
+                A[i] = A[j];
+                A[j] = t;
+            }
+        }
+    }
+    int sum = 0;
+    int total = 0;
+    for (i = 0; i < n; i++) {
+        sum += A[i];
+        total += sum;
+    }
+    cout << total << endl;
+    return 0;
+
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
